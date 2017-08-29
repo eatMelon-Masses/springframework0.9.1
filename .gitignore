@@ -28,3 +28,8 @@ proguard/
 out/
 classes/
 */build/
+
+*/dist/*
+docs/api/
+release/
+*/war/*
