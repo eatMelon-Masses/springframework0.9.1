@@ -29,7 +29,7 @@ out/
 classes/
 */build/
 
-*/dist/*
+dist/
 docs/api/
 release/
-*/war/*
+war/
