@@ -31,7 +31,7 @@ public abstract class BaseMySQLTestCase extends TestCase {
     /**
      * JDBC URL
      */
-    protected static String dbUrl = "jdbc:mysql:///test?user=test&password=test";
+    protected static String dbUrl = "jdbc:mysql:///spring_test?user=root&password=jian031018";
 
     // Constructors
 
