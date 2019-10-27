@@ -51,7 +51,7 @@ public abstract class BaseMySQLTestCase extends TestCase {
      * @throws Exception if an error occurs.
      */
 	public void setUp() throws Exception {
-	ds = new SingleConnectionDataSource("com.mysql.jdbc.Driver", dbUrl, "test", "test", false);
+	ds = new SingleConnectionDataSource("com.mysql.jdbc.Driver", dbUrl, "root", "jian031018", false);
 	if (null != ds)
 	    conn = ds.getConnection();   
 	if (null == ds || null == conn)

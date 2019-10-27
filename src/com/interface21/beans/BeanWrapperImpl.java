@@ -107,6 +107,7 @@ public class BeanWrapperImpl implements BeanWrapper {
 	private Object object;
 
 	/**
+	 * //todo 此对象作用？
 	 * Cached introspections results for this object, to prevent encountering the cost
 	 * of JavaBeans introspection every time.
 	 * */
@@ -133,8 +134,8 @@ public class BeanWrapperImpl implements BeanWrapper {
 	//---------------------------------------------------------------------
 
 	/**
-	 * Creates new BeanWrapperImpl with default event propagation (disabled)
-	 * @param object object wrapped by this BeanWrapper.
+	 * Creates new BeanWrapperImpl with default event propagation（传播） (disabled)
+	 * @param object object wrapped（包装） by this BeanWrapper.
 	 * @throws BeansException if the object cannot be wrapped by a BeanWrapper
 	 */
 	public BeanWrapperImpl(Object object) throws BeansException {
@@ -174,6 +175,7 @@ public class BeanWrapperImpl implements BeanWrapper {
 		if (object == null)
 			throw new FatalBeanException("Cannot set BeanWrapperImpl target to a null object", null);
 		this.object = object;
+		//todo cachedIntrospectionResults 是干什么用的？
 		if (cachedIntrospectionResults == null
 				|| !cachedIntrospectionResults.getBeanClass().equals(object.getClass())) {
 			cachedIntrospectionResults = CachedIntrospectionResults.forClass(object.getClass());
@@ -432,6 +434,7 @@ public class BeanWrapperImpl implements BeanWrapper {
 	}
 
 	/**
+	 * 用来更新属性字段
 	 * Set an individual field.
 	 * All other setters go through this.
 	 * @param pv property value to use for update
@@ -439,7 +442,7 @@ public class BeanWrapperImpl implements BeanWrapper {
 	 * @throws BeansException if there's a low-level, fatal error
 	 */
 	public void setPropertyValue(PropertyValue pv) throws PropertyVetoException, BeansException {
-
+		//判断pv携带的对象是否是当前包装bean的嵌套属性值
 		if (isNestedProperty(pv.getName())) {
 			try {
 				BeanWrapper nestedBw = getBeanWrapperForNestedProperty(pv.getName());
